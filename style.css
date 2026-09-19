@@ -1,0 +1,113 @@
+/* General page */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #f5f5f5;
+    color: #333333;
+}
+
+
+/* Headings */
+h1 {
+    margin-bottom: 25px;
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+
+/* Input and select */
+input,
+select {
+    width: 100%;
+    max-width: 450px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+/* Buttons */
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+
+/* Student list */
+#studentList {
+    margin-top: 20px;
+}
+
+
+/* Student record */
+#studentList > div {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+
+/* Student name */
+#studentList h3 {
+    margin-top: 0;
+}
+
+
+/* Form */
+form {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    max-width: 600px;
+}
+
+
+/* Validation message */
+#errorMessage {
+    color: red;
+}
+
+
+/* Smaller screens */
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    input,
+    select {
+        max-width: 100%;
+    }
+
+    form {
+        padding: 18px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    #studentList > div {
+        padding: 15px;
+    }
+}

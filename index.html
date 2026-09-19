@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Student Management</h1>
+
+    <!-- Add student button -->
+    <button onclick="window.location.href='addStudent.html'">
+        + Add Student
+    </button>
+
+    <br><br>
+
+
+    <!-- Search student -->
+    <label for="searchInput">Search Student</label>
+    <br>
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search student by name"
+    >
+
+    <br><br>
+
+
+    <!-- Filter by course -->
+    <label for="courseFilter">Filter by Course</label>
+    <br>
+
+    <select id="courseFilter">
+        <option value="All">All Courses</option>
+    </select>
+
+    <br><br>
+
+
+    <!-- Student list -->
+    <h2>Student List</h2>
+
+    <div id="studentList"></div>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

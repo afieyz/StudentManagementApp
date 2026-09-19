@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Add Student</h1>
+
+    <form id="studentForm">
+
+        <!-- Name -->
+        <label for="name">Name</label>
+        <br>
+
+        <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter student name"
+        >
+
+        <br><br>
+
+
+        <!-- Course -->
+        <label for="course">Course</label>
+        <br>
+
+        <input
+            type="text"
+            id="course"
+            name="course"
+            placeholder="Enter student course"
+        >
+
+        <br><br>
+
+
+        <!-- Age -->
+        <label for="age">Age</label>
+        <br>
+
+        <input
+            type="number"
+            id="age"
+            name="age"
+            placeholder="Enter age"
+        >
+
+        <br><br>
+
+
+        <!-- Validation message -->
+        <p id="errorMessage"></p>
+
+
+        <!-- Buttons -->
+        <button type="submit">
+            Add Student
+        </button>
+
+        <button
+            type="button"
+            onclick="window.location.href='index.html'"
+        >
+            Cancel
+        </button>
+
+    </form>
+
+
+    <script>
+
+        const studentForm =
+            document.getElementById("studentForm");
+
+        const errorMessage =
+            document.getElementById("errorMessage");
+
+
+        studentForm.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+
+            // Get form values
+            const name =
+                document.getElementById("name")
+                    .value
+                    .trim();
+
+            const course =
+                document.getElementById("course")
+                    .value
+                    .trim();
+
+            const ageInput =
+                document.getElementById("age")
+                    .value
+                    .trim();
+
+            const age =
+                Number(ageInput);
+
+
+            // Check required fields
+            if (
+                name === "" ||
+                course === "" ||
+                ageInput === ""
+            ) {
+
+                errorMessage.textContent =
+                    "All fields are required.";
+
+                return;
+            }
+
+
+            // Check reasonable age
+            if (
+                !Number.isInteger(age) ||
+                age < 1 ||
+                age > 100
+            ) {
+
+                errorMessage.textContent =
+                    "Please enter a valid age.";
+
+                return;
+            }
+
+
+            // Create new student
+            const newStudent = {
+                name: name,
+                course: course,
+                age: age
+            };
+
+
+            // Get existing student records
+            let students =
+                JSON.parse(
+                    localStorage.getItem("studentRecords")
+                ) || [];
+
+
+            // Add new student
+            students.push(newStudent);
+
+
+            // Save student records
+            localStorage.setItem(
+                "studentRecords",
+                JSON.stringify(students)
+            );
+
+
+            // Return to main page
+            window.location.href =
+                "index.html";
+        });
+
+    </script>
+
+</body>
+
+</html>
